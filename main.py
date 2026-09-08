@@ -8,39 +8,44 @@ class Home(QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
+        self.settings()
 
     #Objeto e Design
     def initUI(self):
-        self.title = QLabel("Streaks")
+        
+        self.title = QLabel("As tuas streaks")
         self.input_box = QTextEdit()
         self.output_box = QTextEdit()
-        self.button1 = QPushButton("HEY CLICK ME")
+        self.button1 = QPushButton("Streak 1")
+        self.button2 = QPushButton("Streak 2")
+        self.button3 = QPushButton("Streak 3")
+        self.button4 = QPushButton("Streak 4")
         self.input_option = QComboBox()
 
-        self.master = QHBoxLayout()
+        self.master = QVBoxLayout()
 
-        coluna1 = QVBoxLayout()
-        coluna2 = QVBoxLayout()
-        coluna3 = QVBoxLayout()
+        linha1 = QHBoxLayout()
+        linha2 = QHBoxLayout()
+        linha3 = QHBoxLayout()
 
-        coluna1.addWidget(self.title)
+        linha1.addWidget(self.title)
 
-        coluna2.addWidget(self.input_box)
-        coluna2.addWidget(self.output_box)
-        coluna2.addWidget(self.button1)
+        linha2.addWidget(self.button1)
+        linha2.addWidget(self.button2)
 
-        coluna3.addWidget(self.input_option)
+        linha3.addWidget(self.button3)
+        linha3.addWidget(self.button4)
 
-        self.master.addLayout(coluna1, 20)
-        self.master.addLayout(coluna2, 60)
-        self.master.addLayout(coluna3, 20)
+        self.master.addLayout(linha1, 10)
+        self.master.addLayout(linha2, 45)
+        self.master.addLayout(linha3, 45)
 
         self.setLayout(self.master)
 
-
     #App Settings
     def settings(self):
-        pass
+        self.setWindowTitle("Streaks")
+        self.setGeometry(250,250,600,500)
 
     #Button Events
     def button_click(self):
